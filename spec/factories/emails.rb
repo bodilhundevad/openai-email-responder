@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :email do
-    email_content {
+    received {
       'Hi Bodil,\n' \
       'Thank you for applying at Tractive! Since we’re all about open communication and quick feedback, we thought we’d give you the good news right away - we’d like to proceed further with your application. \n' \
       'To do so, we need the following from you:\n' \
@@ -13,5 +13,33 @@ FactoryBot.define do
       'Best Regards,\n' \
       'Romana Haspelhuber'
     }
+    description { 'Inform about completing application'}
+    tonality { 'business' }
+
+    trait :business do
+      tonality { 'business' }
+    end
+
+    trait :business_casual do
+      tonality { 'business-casual' }
+    end
+
+    trait :business_casual do
+      tonality { 'casual' }
+    end
+
+    trait :received_empty do
+      received { nil }
+    end
+
+    trait :description_empty do
+      description { nil }
+    end
+
+    trait :tonality_empty do
+      tonality { nil }
+    end
+
+    factory :empty, traits: %i[received_empty description_empty tonality_empty]
   end
 end

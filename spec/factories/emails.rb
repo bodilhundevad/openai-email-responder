@@ -14,17 +14,16 @@ FactoryBot.define do
       'Romana Haspelhuber'
     }
     description { 'Inform about completing application'}
-    tonality { 'business' }
 
-    trait :business do
+    trait :tonality_business do
       tonality { 'business' }
     end
 
-    trait :business_casual do
+    trait :tonality_business_casual do
       tonality { 'business-casual' }
     end
 
-    trait :business_casual do
+    trait :tonality_business_casual do
       tonality { 'casual' }
     end
 
@@ -40,6 +39,6 @@ FactoryBot.define do
       tonality { nil }
     end
 
-    factory :empty, traits: %i[received_empty description_empty tonality_empty]
+    factory :email_empty, traits: %i[received_empty description_empty tonality_empty]
   end
 end

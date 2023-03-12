@@ -12,17 +12,17 @@ module OpenaiEmailResponder
       generate.assets false
       generate.helper false
       generate.test_framework :rspec
-      g.fixture_replacement :factory_bot
-      g.factory_bot dir: 'spec/factories'
-      g.controller_specs false
-      g.request_specs true
-      g.helper_specs false
-      g.feature_specs true
-      g.mailer_specs true
-      g.model_specs true
-      g.observer_specs false
-      g.routing_specs false
-      g.view_specs false
+      generate.fixture_replacement :factory_bot
+      generate.factory_bot dir: 'spec/factories'
+      generate.controller_specs false
+      generate.request_specs true
+      generate.helper_specs false
+      generate.feature_specs true
+      generate.mailer_specs true
+      generate.model_specs true
+      generate.observer_specs false
+      generate.routing_specs false
+      generate.view_specs false
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0

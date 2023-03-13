@@ -3,7 +3,7 @@ class EmailGenerator
     @email = email
   end
 
-  def generate_response
+  def email_message
     "Hello, here is the response."
   end
 end

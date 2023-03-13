@@ -1,15 +1,18 @@
 require 'rails_helper'
 
 describe EmailGenerator do
-  let(:email) { build_stubbed :email, :tonality_business }
-  let(:email_generator) { EmailGenerator.new(email) }
+ context "when making requests to API, response", :vcr do
+    let(:email) { build_stubbed :email }
+    let(:response) { EmailGenerator.new(email).call }
 
-  describe "generate_response" do
-    it "returns a string" do
-      expect(email_generator.generate_response).to be_a(String)
+    it "is HTTParty::Response" do
+      expect(response).to be_an(HTTParty::Response)
     end
-    it "returns an email response from ChatGPT"
 
+    it "includes email message" do
+      email_message = response.dig("choices", 0, "text")
+      expect(email_message).to be_a(String)
+      expect(email_message).not_to be_empty
     end
   end
 end

@@ -29,4 +29,17 @@ RSpec.describe Email, type: :model do
       end
     end
   end
+
+  describe "email response" do
+      let(:email) { create(:email) }
+      let(:fake_service) { instance_double(EmailGenerator) }
+
+      it "can get generated email from OpenAi" do # uses a test double for EmailGenerator
+        allow(EmailGenerator).to receive(:new).with(email).and_return(fake_service)
+        allow(fake_service).to receive(:email_message).and_return("fake_email")
+        expect(email.response).to eq("fake_email")
+        expect(fake_service).to have_received(:email_message)
+        expect(EmailGenerator).to have_received(:new)
+      end
+  end
 end

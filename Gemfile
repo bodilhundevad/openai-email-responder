@@ -79,3 +79,6 @@ group :test do
   gem "vcr"
   gem "webmock"
 end
+
+# openai gem for email auto generation
+gem "ruby-openai"

@@ -6,4 +6,8 @@ class Email < ApplicationRecord
   before_validation do
     self.tonality = "casual" if tonality.blank?
   end
+
+  def response
+    EmailGenerator.new(self).email_message
+  end
 end

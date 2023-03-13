@@ -1,8 +1,16 @@
 <div class="container">
-  <%= simple_form_for @email do |f| %>
-    <%= f.input :received, as: :text %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :tonality, as: :radio_buttons, collection: ['business','business-casual','casual']  %>
-    <%= f.button :submit %>
+  <%= turbo_frame_tag "email" do %>
+    <%= simple_form_for @email, html: { class:"py-5" }, data: { turbo_frame: "response" }, remote: true do |f| %>
+      <%= f.input :received, as: :text %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :tonality, as: :radio_buttons, collection: ['business','business-casual','casual']  %>
+      <%= f.button :submit, class: "btn-primary" %>
+    <% end %>
   <% end %>
+
+  <div class="border border-primary p-3" style="min-height: 200px">
+    <%= turbo_frame_tag "response" do %>
+      <p>Your generated response will appear here</p>
+    <% end %>
+  </div>
 </div>

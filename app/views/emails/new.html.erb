@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for @email do |f| %>
+    <%= f.input :received, as: :text %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :tonality, as: :radio_buttons, collection: ['business','business-casual','casual']  %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

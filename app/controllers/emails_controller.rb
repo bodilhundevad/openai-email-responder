@@ -5,9 +5,17 @@ class EmailsController < ApplicationController
 
   def create
     email = Email.new(email_params)
-    if email.save
-      @response = EmailGenerator.new(email).generate_response
-    else # render alert
-    end
+    response = EmailGenerator.new(email).email_message
+    redirect_to action: "show_response", response: response
+  end
+
+  def show_response
+    @response = params[:response]
+  end
+
+  private
+
+  def email_params
+    params.require(:email).permit(:received, :description, :tonality)
   end
 end

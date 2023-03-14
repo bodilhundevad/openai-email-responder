@@ -25,9 +25,9 @@ This app was developed using Test-Driven Development principles.
 
 ## Requirements
 
-Ruby 3.1.2
-Rails 7.0.4
-PostgreSQL 1.1
+ - Ruby 3.1.2
+ - Rails 7.0.4
+ - PostgreSQL 1.1
 
 ## Installation
 

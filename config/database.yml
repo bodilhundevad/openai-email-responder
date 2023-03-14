@@ -84,3 +84,4 @@ production:
   database: openai_email_responder_production
   username: openai_email_responder
   password: <%= ENV["OPENAI_EMAIL_RESPONDER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

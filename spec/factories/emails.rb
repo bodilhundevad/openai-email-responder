@@ -13,7 +13,7 @@ FactoryBot.define do
       'Best Regards,\n' \
       'Romana Haspelhuber'
     }
-    description { 'Inform about completing application'}
+    description { 'I have completed the application and attached it to the email'}
 
     trait :tonality_business do
       tonality { 'business' }

@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+textarea::placeholder  {
+  color: gray !important;
+}
+
+.grey {
+ @extend textarea::placeholder;
+}

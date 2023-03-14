@@ -24,11 +24,11 @@ class EmailGenerator
 
   def generate_prompt
     # combine all the necessary fields to form a complete prompt
-    prompt = "Write an email following the correct email etiquette including placeholders for names in Greeting and Signature.\n"
-    prompt += "The email should be a response from me to this email: '#{@email.received}'.\n" if @email.received.present?
-    prompt += "It should tell the recipient roughly that #{@email.description}.\n" if @email.description.present?
-    prompt += "The tone of the email should be '#{@email.tonality}'."
-    prompt += "Make the email sound well written."
+    prompt = "Write an email I can copy and paste to my email service."
+    prompt += "It should include, that #{@email.description}. " if @email.description.present?
+    prompt += "It should be in response to this email: '#{@email.received}'. " if @email.received.present?
+    prompt += "The tonality should be #{@email.tonality}. "
+    prompt += "Make the email sound well written and expand to make it sound better. It should follow the correct email etiquette including placeholders for names in Greeting and Signature."
     prompt
   end
 end

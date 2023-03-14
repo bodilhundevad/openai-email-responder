@@ -6,24 +6,28 @@ This is a Ruby on Rails application that generates email responses based on the 
 
 The app is available through: https://email-generator.osc-fr1.scalingo.io/
 
-## Development
+## Features
 
-This app was developed using Test-Driven Development principles with RSpec, Capybara, VCR, and Webmock. The following are some of the key technologies used in the app:
+- Generate emails based on the context provided or received email
+- Select different tonalities for the email
+- Copy generated email to clipboard
+- Uses OpenAI API to generate email
 
-- Ruby 3.1.2
-- Rails 7.0.4
-- Postgresql
-- Puma web server
-- Turbo-rails
-- Stimulus-rails
-- Sassc-rails
-- Autoprefixer-rails
-- Font-awesome-sass
-- Simple_form
+## Technologies
+This app was developed using Test-Driven Development principles.
+
+- Ruby on Rails
+- RSpec
 - Capybara
-- Selenium-webdriver
-- Webdrivers
-- Ruby-openai
+- VCR
+- Webmock
+- OpenAI API
+
+## Requirements
+
+Ruby 3.1.2
+Rails 7.0.4
+PostgreSQL 1.1
 
 ## Installation
 

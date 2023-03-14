@@ -1,6 +1,13 @@
 class EmailGenerator
+  attr_reader :body
+
   def initialize(email)
     @email = email
+    @body =  {
+      model: "text-davinci-001",
+      prompt: generate_prompt,
+      max_tokens: 150
+    }
   end
 
   def email_message
@@ -12,20 +19,15 @@ class EmailGenerator
   end
 
   def call #calls api endpoint to get the response
-    parameters = get_openai_parameters(@email)
-    client.completions(parameters: parameters)
+    client.completions(parameters: @body)
   end
 
-  def get_openai_parameters(email)
-    {
-      model: "text-davinci-001",
-      prompt: generate_prompt(email),
-      max_tokens: 150
-    }
-  end
-
-  # Logic for prompt generation based on email instance
-  def generate_prompt(email)
-    "Generate an email example for sending a job application"
+  def generate_prompt
+    # combine all the necessary fields to form a complete prompt
+    prompt = "Write an email including Greeting and Salutation.\n"
+    prompt += "The email should be a response from me to this email: '#{@email.received}'.\n" if @email.received.present?
+    prompt += "It should say that #{@email.description}.\n" if @email.description.present?
+    prompt += "The tonality of the email should be '#{@email.tonality}'."
+    prompt
   end
 end
